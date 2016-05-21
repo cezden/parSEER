@@ -1,0 +1,17 @@
+Package: parSEER
+Type: Package
+Title: R parser for NCI Surveillance, Epidemiology, and End Results (SEER) Text
+    Data
+Version: 0.1.0
+Author: Cezary Dendek
+Maintainer: Cezary Dendek <cezary.dendek+parSEER@gmail.com>
+Description: Supports the data format parsing and data dictionaries
+License: MIT
+LazyData: TRUE
+Depends:
+    dplyr,
+    raster,
+    readr,
+    readxl,
+    stringi
+RoxygenNote: 5.0.1
