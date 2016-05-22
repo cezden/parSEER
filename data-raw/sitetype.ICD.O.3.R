@@ -178,3 +178,34 @@ ICD.O.3.topo <- ICD.O.3.pre %>%
 
 save(ICD.O.3.topo, file = 'data/ICD.O.3.topo.rdata', compress = 'xz')
 
+ICD.O.3.histo <- res.icdo3 %>%
+  dplyr::select(
+    histology,
+    histology.description,
+    histology.behavior,
+    histology.behavior.description) %>%
+  dplyr::distinct() %>%
+  dplyr::arrange(histology.behavior) %>%
+  as.data.frame()
+
+save(ICD.O.3.histo, file = 'data/ICD.O.3.histo.rdata', compress = 'xz')
+
+ICD.O.3.valid.histotopo <- res.icdo3 %>%
+  dplyr::select(
+    SEER.site.description = site.description,
+    histology.behavior
+  ) %>%
+  dplyr::left_join(
+    site.recode.descr %>%
+      dplyr::select(
+        SEER.site.description = site.description,
+        SEER.site.recode.id = siteid
+        ),
+    by = "SEER.site.description"
+  ) %>%
+  dplyr::select(histology.behavior, SEER.site.recode.id) %>%
+  dplyr::arrange(histology.behavior, SEER.site.recode.id) %>%
+  as.data.frame()
+
+save(ICD.O.3.valid.histotopo, file = 'data/ICD.O.3.valid.histotopo.rdata', compress = 'xz')
+

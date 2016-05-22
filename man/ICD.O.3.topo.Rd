@@ -4,7 +4,7 @@
 \name{ICD.O.3.topo}
 \alias{ICD.O.3.topo}
 \title{ICD-O-3 topographical codes & grouppings}
-\format{A data frame with nine variables:
+\format{A data frame with six variables:
 \describe{
 \item{\code{ICDO3.code}}{ICD-O-3 topographical code (without the decimal point)}
 \item{\code{locality}}{ICD-O-3 locality}
